@@ -1,0 +1,77 @@
+
+    <h2>YOUR INFO</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Screen Name</th>
+                <th>User Type</th>
+                <th>Home State</th>
+                <th>Home Town</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{currentUser.id}}</td>
+                <td>{{currentUser.email}}</td>
+                <td>{{currentUser.password}}</td>
+                <td>{{currentUser.screenName}}</td>
+                <td>{{currentUser.userType}}</td>
+                <td>{{currentUser.homeState}}</td>
+                <td>{{currentUser.homeTown}}</td>
+                <td>{{currentUser.address}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class= "btn btn-primary" (click) = toggleEdit();>EDIT</button>
+
+    <div *ngIf = "editFlag">
+        <form class="form-inline">
+            <label for="screenName">Screen Name</label>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Enter a screeen name"
+                 name="screenName" 
+                id="screenName" 
+                [(ngModel)]="editUser.screenName"
+             >
+            <label for="homeState">Home State</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter home state" 
+                name = "homeState"
+                id="homeState" 
+                [(ngModel)] = "editUser.homeState"
+            >
+
+            <label for="homeTown">Home Town</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Enter home town" 
+                name = "homeTown"
+                id="homeTown" 
+                [(ngModel)] = "editUser.homeTown"
+            >
+
+            <label for="address">Address</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="enter address" 
+                name = "address"
+                id="address" 
+                [(ngModel)] = "editUser.address"
+            >
+            <button type="submit" class="btn btn-primary" (click)="editUserInfo()">Submit</button>
+          </form>
+
+    </div>
+
+
+
