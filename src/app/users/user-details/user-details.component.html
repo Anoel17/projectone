@@ -30,42 +30,57 @@
     <button type="button" class= "btn btn-dark" (click)=toggleEdit()>EDIT</button>
 
     <div *ngIf = "editFlag">
-        <form class="form-inline">
+        <form #editForm="ngForm" (ngSubmit)="editUserInfo()" class="form-inline" >
             <label for="screenName">Screen Name</label>
             <input type="text" 
                 class="form-control" 
                 placeholder="Enter a screeen name"
-                name="screenName" 
+                ngModel name="screenName" 
                 id="screenName" 
-                [(ngModel)]="editUser.screenName">
+                [(ngModel)]="editUser.screenName" 
+                required>
 
             <label for="homeState">Home State</label>
             <input 
                 type="text" 
                 class="form-control" 
                 placeholder="Enter home state" 
-                name = "homeState"
+                ngModel name = "homeState"
                 id="homeState" 
-                [(ngModel)] = "editUser.homeState">
+                [(ngModel)] = "editUser.homeState"
+                required>
 
             <label for="homeTown">Home Town</label>
             <input 
                 type="text" 
                 class="form-control" 
                 placeholder="Enter home town" 
-                name = "homeTown"
+                ngModel name = "homeTown"
                 id="homeTown" 
-                [(ngModel)] = "editUser.homeTown">
+                [(ngModel)] = "editUser.homeTown"
+                required>
 
             <label for="address">Address</label>
             <input 
                 type="text" 
                 class="form-control" 
                 placeholder="enter address" 
-                name = "address"
+                ngModel name = "address"
                 id="address" 
-                [(ngModel)] = "editUser.address">
-            <button type="submit" class="btn btn-dark" (click)="editUserInfo()">Submit</button>
+                [(ngModel)] = "editUser.address"
+                required>
+            
+            <label for="email">Email</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="enter email" 
+                ngModel name = "email"
+                id="email" 
+                [(ngModel)] = "editUser.email"
+                required> 
+                
+            <button [disabled]="editForm.invalid" type="submit" class="btn btn-dark" (click)="editUserInfo()">UPDATE</button>
           </form>
     </div>
 

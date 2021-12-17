@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-manager',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeManagerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  getUserInfo(){
+    this.router.navigate(['user-details']);
+  }
+  getManagerRequest(){
+    this.router.navigate(['request-manage']);
+  
+}
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { user } from '../user.model';
 import { UserService } from '../user.service';
@@ -37,7 +38,6 @@ export class UserDetailsComponent implements OnInit {
     password: "",
     address: "",
   }
-
 
   constructor(private userService: UserService) {
     this.getuserInfo();
@@ -79,6 +79,7 @@ export class UserDetailsComponent implements OnInit {
       (response) => {
         console.log(response);
         this.getuserInfo();
+        
       
       },
       (error) => {
@@ -93,6 +94,15 @@ export class UserDetailsComponent implements OnInit {
     else this.editFlag=true;
   }
 
-
+  // onEditEmployee(user: user): void{
+  //   this.userService.updateUser(user).subscribe(
+  //     (response: user) => {
+  //       console.log(response);
+  //       this.getuserInfo();
+  //     },
+  //     (error)
+  //   )
+  //   }
+  // }
 
 }

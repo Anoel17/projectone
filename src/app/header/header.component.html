@@ -4,31 +4,34 @@
       <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link" routerLink="welcome">HOME</a>
       </li>
-      <li class="nav-item" *ngIf="isEmployee()">
+      <li class="nav-item" *ngIf=" isLoggedIn() && isEmployee()">
         <a class="nav-link" routerLink="employee-home">HOME</a>
       </li>
-      <li class="nav-item" *ngIf="isManager()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isManager()">
         <a class="nav-link" routerLink="manager-home">HOME</a>
       </li>
-      <li class="nav-item" *ngIf="isEmployee()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isEmployee()">
         <a class="nav-link" routerLink = "request-pending">REIMBURSEMENT</a>
       </li>
-      <li class="nav-item" *ngIf="isManager()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isManager()">
         <a class="nav-link" routerLink = "request-manage">REIMBURSEMENT</a>
       </li>
-      <li class="nav-item" *ngIf="isEmployee()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isEmployee()">
         <a class="nav-link" routerLink="user-details">PROFILE</a> 
       </li>
-      <li class="nav-item" *ngIf="isManager()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isManager()">
         <a class="nav-link" routerLink="user-details">PROFILE</a>
       </li> 
-      <li class="nav-item dropdown" *ngIf="isManager()">
+      <li class="nav-item" *ngIf="isLoggedIn() && isManager()">
+        <a class="nav-link" routerLink="view-employees">COMPANY</a>
+      </li> 
+      <!-- <li class="nav-item dropdown" *ngIf="isLoggedIn() && isManager()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">COMPANY</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" routerLink="view-employees">All Employees</a>
           <a class="dropdown-item" routerLink="view-managers">All Managers</a>
         </div>
-        </li> 
+        </li>  -->
       <!-- <li class="nav-item">
         <a class="nav-link" routerLink="login" (click)="clearLog()">LOGIN/LOGOUT</a>
       </li> -->

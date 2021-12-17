@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { user } from '../user.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'login',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     email: "",
     password: ""
   }
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -39,11 +40,12 @@ export class LoginComponent implements OnInit {
         console.log(response);
         sessionStorage.setItem('userId', ""+response.id);
         sessionStorage.setItem('userLevel', response.userType);
+        this.authService.isLoggedIn = true;
         
         if(response.userType = "manager"){
-          this.router.navigate(['manager-home']);
+          this.router.navigate(['']);
         }else if(response.userType = "employee") {
-          this.router.navigate(['employe-home'])
+          this.router.navigate([''])
         }
       },
       (error) => {

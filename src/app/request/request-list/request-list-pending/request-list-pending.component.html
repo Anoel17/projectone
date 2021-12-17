@@ -19,6 +19,11 @@
                 >
             <div class="form-check">
             </div>
+            <div class="container row">
+                <div class="col-md-6">
+            <input type="file" (change)="onFileChanged($event)">
+                </div>
+            </div>
             <button type="submit" class="btn btn-dark" (click)="addRequest()">Submit</button>
           </form>
     </div>
